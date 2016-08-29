@@ -2,7 +2,7 @@
 
 def menu():
 
-    saldo = 150
+    saldo = 0
     end = False
 
     while end == False:
@@ -11,9 +11,13 @@ def menu():
         if option == 1:
             print 'Saldo atual: R$',saldo
         elif option == 2:
-            print 'Solicitar o saque'
+            valor_saque = input('Solicitado saque, digite o valor a ser sacado:')
+            saldo = saldo - valor_saque
+            print 'Saque ok, saldo atual: R$',saldo
         elif option == 3:
-            print 'Solicitar o deposito'
+            valor_deposito = input('Solicitado deposito, digite o valor a ser depositado:')
+            saldo = saldo + valor_deposito
+            print 'Deposito ok, saldo atual: R$',saldo
         else:
             print 'Opcao Invalida'
             end = True
