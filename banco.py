@@ -2,24 +2,35 @@
 
 def menu():
 
-    saldo = 0
+    saldo = 0.00
+    cheque_especial = 100.00
     end = False
 
     while end == False:
-        option = input('Opcoes:\n1) Consultar Saldo\n2) Saque\n3) Deposito\nDigite a opcao desejada:')
+
+        print 'SALDO ATUAL: R$ ',saldo
+
+        option = input('Opcoes:\n1) Saque\n2) Deposito\nDigite a opcao desejada:')
 
         if option == 1:
-            print 'Saldo atual: R$',saldo
-        elif option == 2:
             valor_saque = input('Solicitado saque, digite o valor a ser sacado:')
-            saldo = saldo - valor_saque
-            print 'Saque ok, saldo atual: R$',saldo
-        elif option == 3:
+
+            diff = saldo - valor_saque;
+            total = cheque_especial - valor_saque + saldo
+
+            if  diff < 0 and total < 0:
+                    print 'Saque maior do que o disponivel'
+            else:
+                saldo = saldo - valor_saque
+                print 'Saque ok'
+        elif option == 2:
             valor_deposito = input('Solicitado deposito, digite o valor a ser depositado:')
             saldo = saldo + valor_deposito
-            print 'Deposito ok, saldo atual: R$',saldo
+            print 'Deposito ok'
         else:
             print 'Opcao Invalida'
             end = True
 
 menu()
+
+
